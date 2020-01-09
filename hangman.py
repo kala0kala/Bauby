@@ -7,7 +7,7 @@ clock = pygame.time.Clock()
 done = False
 
 alfabet='aąbcćdeęfghijklłmnoópqrsśtuwvzźż'
-
+slowo = []
 font = pygame.font.SysFont("comicsansms", 72)
 button = pygame.Rect(100, 100, 50, 50)
 button.x = 295
@@ -30,6 +30,11 @@ while not done:
                     # prints current location of mouse
                     print('button was pressed at {0}'.format(mouse_pos))
 
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE: #działanie spacji; wybór literki
+            slowo.append(alfabet[counter - 1])
+            print(slowo)
+            counter = 0
+            
     screen.fill((255, 255, 255))
     text = font.render(alfabet[counter], True, (0, 128, 0))
     screen.blit(text,
